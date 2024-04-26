@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12 col-xl-6 mb-4">
-                    <div class="card bg-warning text-white h-100">
+                    <div class="card bg-primary text-white h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="me-3">
