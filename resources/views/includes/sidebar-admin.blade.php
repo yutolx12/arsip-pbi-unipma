@@ -37,28 +37,28 @@
             </a>
             <a class="nav-link {{ request()->is('admin/letter/create') ? 'active' : '' }}"
                 href="{{ route('letter.create') }}">
-                <div class="nav-link-icon"><i data-feather="mail"></i></div>
-                Tambah File
+                <div class="nav-link-icon"><i data-feather="upload"></i></div>
+                Tambah Dokumen
             </a>
             <a class="nav-link {{ request()->is('admin/letter/surat-masuk') ? 'active' : '' }}"
                 href="{{ route('surat-masuk') }}">
-                <div class="nav-link-icon"><i data-feather="arrow-right"></i></div>
+                <div class="nav-link-icon"><i data-feather="file-text"></i></div>
                 Artikel
             </a>
             <a class="nav-link {{ request()->is('admin/letter/surat-keluar') ? 'active' : '' }}"
                 href="{{ route('surat-keluar') }}">
-                <div class="nav-link-icon"><i data-feather="arrow-left"></i></div>
+                <div class="nav-link-icon"><i data-feather="file-text"></i></div>
                 Laporan
             </a>
             <a class="nav-link {{ request()->is('admin/user*') ? 'active' : '' }}" href="{{ route('user.index') }}">
                 <div class="nav-link-icon"><i data-feather="user"></i></div>
                 Data User
             </a>
-            <a class="nav-link {{ request()->is('admin/setting*') ? 'active' : '' }}"
+            {{-- <a class="nav-link {{ request()->is('admin/setting*') ? 'active' : '' }}"
                 href="{{ route('setting.index') }}">
                 <div class="nav-link-icon"><i data-feather="settings"></i></div>
                 Profile
-            </a>
+            </a> --}}
         </div>
     </div>
     <!-- Sidenav Footer-->

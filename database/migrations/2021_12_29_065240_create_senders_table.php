@@ -16,6 +16,7 @@ class CreateSendersTable extends Migration
         Schema::create('senders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('nidn');
             $table->text('address');
             $table->string('phone');
             $table->string('email');

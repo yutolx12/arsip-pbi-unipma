@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Tambah Surat
+    Tambah Dokumen
 @endsection
 
 @section('container')
@@ -40,7 +40,7 @@
                             <div class="card-header">Form Upload</div>
                             <div class="card-body">
                                 <div class="mb-3 row">
-                                    <label for="letter_type" class="col-sm-3 col-form-label">Tipe File</label>
+                                    <label for="letter_type" class="col-sm-3 col-form-label">Tipe Dokumen</label>
                                     <div class="col-sm-9">
                                         <select name="letter_type" class="form-control" required>
                                             <option value="">Pilih..</option>
@@ -58,7 +58,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="letter_no" class="col-sm-3 col-form-label">Nama Surat</label>
+                                    <label for="letter_no" class="col-sm-3 col-form-label">Nama Dokumen</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control @error('letter_no') is-invalid @enderror"
                                             value="{{ old('letter_no') }}" name="letter_no" placeholder="Nama Surat.."
@@ -146,12 +146,13 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="letter_file" class="col-sm-3 col-form-label">File</label>
+                                    <label for="letter_file" class="col-sm-3 col-form-label">Dokumen</label>
                                     <div class="col-sm-9">
                                         <input type="file"
                                             class="form-control @error('letter_file') is-invalid @enderror"
                                             value="{{ old('letter_file') }}" name="letter_file" required>
-                                        <div id="letter_file" class="form-text">Ekstensi .pdf</div>
+                                        <div id="letter_file" class="form-text">Ekstensi: .pdf .xls .docx .doc dan maksimal
+                                            berukuran 5MB</div>
                                     </div>
                                     @error('letter_file')
                                         <div class="invalid-feedback">

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-   Ubah Surat
+    Ubah Dokumen
 @endsection
 
 @section('container')
@@ -51,57 +51,69 @@
                                     <div class="col-sm-9">
                                         <select name="letter_type" class="form-control" required>
                                             <option value="">Pilih..</option>
-                                            <option value="Surat Masuk" {{ ($item->letter_type == 'Surat Masuk')? 'selected':''; }}>Surat Masuk</option>
-                                            <option value="Surat Keluar" {{ ($item->letter_type == 'Surat Keluar')? 'selected':''; }}>Surat Keluar</option>
+                                            <option value="Surat Masuk"
+                                                {{ $item->letter_type == 'Surat Masuk' ? 'selected' : '' }}>Surat Masuk
+                                            </option>
+                                            <option value="Surat Keluar"
+                                                {{ $item->letter_type == 'Surat Keluar' ? 'selected' : '' }}>Surat Keluar
+                                            </option>
                                         </select>
                                     </div>
                                     @error('letter_type')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="letter_no" class="col-sm-3 col-form-label">No. Surat</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control @error('letter_no') is-invalid @enderror" value="{{ $item->letter_no }}" name="letter_no" placeholder="Nomor Surat.." required>
+                                        <input type="text" class="form-control @error('letter_no') is-invalid @enderror"
+                                            value="{{ $item->letter_no }}" name="letter_no" placeholder="Nomor Surat.."
+                                            required>
                                     </div>
                                     @error('letter_no')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="letter_date" class="col-sm-3 col-form-label">Tanggal Surat</label>
                                     <div class="col-sm-9">
-                                        <input type="date" class="form-control @error('letter_date') is-invalid @enderror" value="{{ $item->letter_date }}" name="letter_date" required>
+                                        <input type="date"
+                                            class="form-control @error('letter_date') is-invalid @enderror"
+                                            value="{{ $item->letter_date }}" name="letter_date" required>
                                     </div>
                                     @error('letter_date')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="date_received" class="col-sm-3 col-form-label">Tanggal Diterima</label>
                                     <div class="col-sm-9">
-                                        <input type="date" class="form-control @error('date_received') is-invalid @enderror" value="{{ $item->date_received }}" name="date_received" required>
+                                        <input type="date"
+                                            class="form-control @error('date_received') is-invalid @enderror"
+                                            value="{{ $item->date_received }}" name="date_received" required>
                                     </div>
                                     @error('date_received')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="regarding" class="col-sm-3 col-form-label">Perihal</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control @error('regarding') is-invalid @enderror" value="{{ $item->regarding }}" name="regarding" placeholder="Perihal.." required>
+                                        <input type="text" class="form-control @error('regarding') is-invalid @enderror"
+                                            value="{{ $item->regarding }}" name="regarding" placeholder="Perihal.."
+                                            required>
                                     </div>
                                     @error('regarding')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
@@ -111,13 +123,15 @@
                                         <select name="department_id" class="form-control selectx" required>
                                             <option value="">Pilih..</option>
                                             @foreach ($departments as $department)
-                                                <option value="{{ $department->id }}" {{ ($item->department_id == $department->id)? 'selected':''; }}>{{ $department->name }}</option>
+                                                <option value="{{ $department->id }}"
+                                                    {{ $item->department_id == $department->id ? 'selected' : '' }}>
+                                                    {{ $department->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     @error('department_id')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
@@ -127,25 +141,30 @@
                                         <select name="sender_id" class="form-control selectx" required>
                                             <option value="">Pilih..</option>
                                             @foreach ($senders as $sender)
-                                                <option value="{{ $sender->id }}" {{ ($item->sender_id == $sender->id)? 'selected':''; }}>{{ $sender->name }}</option>
+                                                <option value="{{ $sender->id }}"
+                                                    {{ $item->sender_id == $sender->id ? 'selected' : '' }}>
+                                                    {{ $sender->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     @error('sender_id')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="letter_file" class="col-sm-3 col-form-label">File</label>
                                     <div class="col-sm-9">
-                                        <input type="file" class="form-control @error('letter_file') is-invalid @enderror" value="{{ old('letter_file') }}" name="letter_file">
-                                        <div id="letter_file" class="form-text">Ekstensi .pdf | Kosongkan file jika tidak diisi</div>
+                                        <input type="file"
+                                            class="form-control @error('letter_file') is-invalid @enderror"
+                                            value="{{ old('letter_file') }}" name="letter_file">
+                                        <div id="letter_file" class="form-text">Ekstensi .pdf | Kosongkan file jika tidak
+                                            diisi</div>
                                     </div>
                                     @error('letter_file')
                                         <div class="invalid-feedback">
-                                            {{ $message; }}
+                                            {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
@@ -165,7 +184,8 @@
 @endsection
 
 @push('addon-style')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.1.1/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.1.1/dist/select2-bootstrap-5-theme.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
 @endpush
 
@@ -177,4 +197,3 @@
         });
     </script>
 @endpush
-

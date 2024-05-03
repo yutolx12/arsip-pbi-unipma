@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Surat Keluar
+    Laporan
 @endsection
 
 @section('container')

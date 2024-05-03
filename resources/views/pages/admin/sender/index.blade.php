@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Pengirim Surat
+    Data Karyawan
 @endsection
 
 @section('container')
@@ -26,7 +26,7 @@
                 <div class="col-lg-12">
                     <div class="card card-header-actions mb-4">
                         <div class="card-header">
-                            Daftar Data Karyawan
+                            Daftar Karyawan
                             <a class="btn btn-sm btn-primary" href="{{ route('sender.create') }}" data-bs-toggle="modal"
                                 data-bs-target="#createModal">
                                 Tambah Data
@@ -58,8 +58,9 @@
                                     <tr>
                                         <th width="10">No.</th>
                                         <th>Nama</th>
-                                        <th>Alamat</th>
-                                        <th>Kontak</th>
+                                        <th>NIDN</th>
+                                        <th>Pendidikan</th>
+                                        <th>Jabatan</th>
                                         <th>E-Mail</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -78,7 +79,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="createModal">Tambah Data Pengirim Surat</h5>
+                    <h5 class="modal-title" id="createModal">Tambah Data Karyawan</h5>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('sender.store') }}" method="post">
@@ -86,9 +87,16 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <div class="col-md-12">
-                                <label for="name">Nama Pengirim</label>
+                                <label for="name">Nama Karyawan</label>
                                 <input type="text" name="name" class="form-control"
-                                    placeholder="Masukan Nama Pengirim.." required>
+                                    placeholder="Masukan Nama Karyawan.." required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="col-md-12">
+                                <label for="nidn">NIDN</label>
+                                <input type="text" name="nidn" class="form-control" placeholder="Masukan NIDN.."
+                                    required>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -125,6 +133,7 @@
         @php
             $id = $item->id;
             $name = $item->name;
+            $nidn = $item->nidn;
             $address = $item->address;
             $phone = $item->phone;
             $email = $item->email;
@@ -145,7 +154,14 @@
                                 <div class="col-md-12">
                                     <label for="name">Nama Pengirim</label>
                                     <input type="text" name="name" class="form-control"
-                                        value="{{ $name }}" placeholder="Masukan Nama Pengirim.." required>
+                                        value="{{ $name }}" placeholder="Masukan Nama Karyawan.." required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="col-md-12">
+                                    <label for="nidn">NIDN</label>
+                                    <input type="text" name="nidn" class="form-control"
+                                        value="{{ $nidn }}" placeholder="Masukan NIDN.." required>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -197,6 +213,10 @@
                 {
                     data: 'name',
                     name: 'name'
+                },
+                {
+                    data: 'nidn',
+                    name: 'nidn'
                 },
                 {
                     data: 'address',

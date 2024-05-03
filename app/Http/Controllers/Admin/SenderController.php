@@ -19,10 +19,10 @@ class SenderController extends Controller
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
-                        <a class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#updateModal'.$item->id.'">
+                        <a class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#updateModal' . $item->id . '">
                             <i class="fas fa-edit"></i> &nbsp; Ubah
                         </a>
-                        <form action="' . route('sender.destroy', $item->id) . '" method="POST" onsubmit="return confirm('."'Anda akan menghapus item ini dari situs anda?'".')">
+                        <form action="' . route('sender.destroy', $item->id) . '" method="POST" onsubmit="return confirm(' . "'Anda akan menghapus item ini dari situs anda?'" . ')">
                             ' . method_field('delete') . csrf_field() . '
                             <button class="btn btn-danger btn-xs">
                                 <i class="far fa-trash-alt"></i> &nbsp; Hapus
@@ -37,7 +37,7 @@ class SenderController extends Controller
         }
         $sender = Sender::all();
 
-        return view('pages.admin.sender.index',[
+        return view('pages.admin.sender.index', [
             'sender' => $sender
         ]);
     }
@@ -51,6 +51,7 @@ class SenderController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'nidn' => 'required',
             'address' => 'required',
             'phone' => 'required',
             'email' => 'required',
@@ -59,8 +60,8 @@ class SenderController extends Controller
         Sender::create($validatedData);
 
         return redirect()
-                    ->route('sender.index')
-                    ->with('success', 'Sukses! 1 Data Berhasil Disimpan');
+            ->route('sender.index')
+            ->with('success', 'Sukses! 1 Data Berhasil Disimpan');
     }
 
     public function show($id)
@@ -77,17 +78,18 @@ class SenderController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'nidn' => 'required',
             'address' => 'required',
             'phone' => 'required',
             'email' => 'required',
         ]);
 
         Sender::where('id', $id)
-                ->update($validatedData);
+            ->update($validatedData);
 
         return redirect()
-                    ->route('sender.index')
-                    ->with('success', 'Sukses! 1 Data Berhasil Diperbarui');
+            ->route('sender.index')
+            ->with('success', 'Sukses! 1 Data Berhasil Diperbarui');
     }
 
     public function destroy($id)
@@ -97,7 +99,7 @@ class SenderController extends Controller
         $item->delete();
 
         return redirect()
-                    ->route('sender.index')
-                    ->with('success', 'Sukses! 1 Data Berhasil Dihapus');
+            ->route('sender.index')
+            ->with('success', 'Sukses! 1 Data Berhasil Dihapus');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Detail Surat
+    Detail Dokumen
 @endsection
 
 @section('container')
@@ -13,7 +13,7 @@
                         <div class="col-auto mb-3">
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i data-feather="file-text"></i></div>
-                                Detail File
+                                Detail Dokumen
                             </h1>
                         </div>
                         <div class="col-12 col-xl-auto mb-3">
@@ -31,17 +31,17 @@
             <div class="row gx-4">
                 <div class="col-lg-7">
                     <div class="card mb-4">
-                        <div class="card-header">Detail File</div>
+                        <div class="card-header">Detail Dokumen</div>
                         <div class="card-body">
                             <div class="mb-3 row">
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <th>Tipe File</th>
+                                            <th>Tipe Dokumen</th>
                                             <td>{{ $item->letter_type }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Nama File</th>
+                                            <th>Nama Dokumen</th>
                                             <td>{{ $item->letter_no }}</td>
                                         </tr>
                                         <tr>
@@ -73,9 +73,9 @@
                 <div class="col-lg-5">
                     <div class="card mb-4">
                         <div class="card-header">
-                            File Surat -
+                            File Dokumen -
                             <a href="{{ route('download-surat', $item->id) }}" class="btn btn-sm btn-primary">
-                                <i class="fa fa-download" aria-hidden="true"></i> &nbsp; Download Surat
+                                <i class="fa fa-download" aria-hidden="true"></i> &nbsp; Download Dokumen
                             </a>
                         </div>
                         <div class="card-body">
