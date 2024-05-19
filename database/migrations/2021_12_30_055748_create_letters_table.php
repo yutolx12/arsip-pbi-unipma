@@ -19,8 +19,6 @@ class CreateLettersTable extends Migration
             $table->date('letter_date');
             $table->date('date_received');
             $table->string('regarding');
-            $table->foreignId('department_id');
-            $table->foreignId('sender_id');
             $table->string('letter_file');
             $table->string('letter_type');
             $table->timestamps();

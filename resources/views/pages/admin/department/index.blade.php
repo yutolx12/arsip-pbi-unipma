@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Departemen
+    Struktur
 @endsection
 
 @section('container')
@@ -12,8 +12,8 @@
                     <div class="row align-items-center justify-content-between pt-3">
                         <div class="col-auto mb-3">
                             <h1 class="page-header-title">
-                                <div class="page-header-icon"><i data-feather="user"></i></div>
-                                Departemen
+                                <div class="page-header-icon"><i data-feather="home"></i></div>
+                                Struktur Prodi
                             </h1>
                         </div>
                     </div>
@@ -25,49 +25,25 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card card-header-actions mb-4">
-                        <div class="card-header">
-                            List Departemen
-                            <a class="btn btn-sm btn-primary" href="{{ route('department.create') }}" data-bs-toggle="modal" data-bs-target="#createModal">
+                        {{-- <div class="card-header">
+                            Daftar Departemen
+                            <a class="btn btn-sm btn-primary" href="{{ route('department.create') }}" data-bs-toggle="modal"
+                                data-bs-target="#createModal">
                                 Tambah Data
                             </a>
-                        </div>
-                        <div class="card-body">
-                            {{-- Alert --}}
-                            @if (session()->has('success'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('success') }}
-                                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @endif
-                            @if ($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            @endif
-                            {{-- List Data --}}
-                            <table class="table table-striped table-hover table-sm" id="crudTable">
-                                <thead>
-                                    <tr>
-                                        <th width="10">No.</th>
-                                        <th>Nama Departemen</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
+                        </div> --}}
+                        <center>
+                            <img class="marginauto" src="{{ url('/admin/assets/img/strukturpbi.jpg') }}" width="778"
+                                height="530" alt="centered image" />
+                        </center>
                     </div>
                 </div>
-            </div>           
+            </div>
         </div>
     </main>
     {{-- Modal Add --}}
-    <div class="modal fade" id="createModal" role="dialog" aria-labelledby="createModal" aria-hidden="true" style="overflow:hidden;">
+    <div class="modal fade" id="createModal" role="dialog" aria-labelledby="createModal" aria-hidden="true"
+        style="overflow:hidden;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -80,7 +56,8 @@
                         <div class="mb-3">
                             <div class="col-md-12">
                                 <label for="post_id">Nama Departemen</label>
-                                <input type="text" name="name" class="form-control" placeholder="Masukan Nama Departemen.." required>
+                                <input type="text" name="name" class="form-control"
+                                    placeholder="Masukan Nama Departemen.." required>
                             </div>
                         </div>
                     </div>
@@ -98,7 +75,8 @@
             $id = $item->id;
             $name = $item->name;
         @endphp
-        <div class="modal fade" id="updateModal{{ $id }}" role="dialog" aria-labelledby="createModal" aria-hidden="true" style="overflow:hidden;">
+        <div class="modal fade" id="updateModal{{ $id }}" role="dialog" aria-labelledby="createModal"
+            aria-hidden="true" style="overflow:hidden;">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -112,7 +90,8 @@
                             <div class="mb-3">
                                 <div class="col-md-12">
                                     <label for="post_id">Nama Departemen</label>
-                                    <input type="text" name="name" value="{{ $name; }}" class="form-control" placeholder="Masukan Nama Departemen.." required>
+                                    <input type="text" name="name" value="{{ $name }}" class="form-control"
+                                        placeholder="Masukan Nama Departemen.." required>
                                 </div>
                             </div>
                         </div>
@@ -128,31 +107,31 @@
 @endsection
 
 @push('addon-script')
-  <script>
-    var datatable = $('#crudTable').DataTable({
-        processing: true,
-        serverSide: true,
-        ordering: true,
-        ajax: {
-          url: '{!! url()->current() !!}',
-        },
-        columns: [
-          {
-            "data": 'DT_RowIndex',
-            orderable: false, 
-            searchable: false
-          },
-          { data: 'name', name: 'name' },
-          { 
-            data: 'action', 
-            name: 'action',
-            orderable: false,
-            searcable: false,
-            width: '15%'
-          },
-        ]
-    });
-  </script>
+    <script>
+        var datatable = $('#crudTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: true,
+            ajax: {
+                url: '{!! url()->current() !!}',
+            },
+            columns: [{
+                    "data": 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false
+                },
+                {
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searcable: false,
+                    width: '15%'
+                },
+            ]
+        });
+    </script>
 @endpush
-
-

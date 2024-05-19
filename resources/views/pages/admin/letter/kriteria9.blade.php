@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Artikel
+    Kriteria 9
 @endsection
 
 @section('container')
@@ -13,7 +13,7 @@
                         <div class="col-auto mb-3">
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i data-feather="user"></i></div>
-                                Artikel
+                                Kriteria 9
                             </h1>
                         </div>
                     </div>
@@ -26,10 +26,10 @@
                 <div class="col-lg-12">
                     <div class="card card-header-actions mb-4">
                         <div class="card-header">
-                            Daftar Artikel
-                            <a class="btn btn-sm btn-primary" href="{{ route('print-surat-masuk') }}" target="_blank">
+                            Daftar Kriteria 9
+                            <a class="btn btn-sm btn-primary" href="{{ route('print-surat-keluar') }}" target="_blank">
                                 <i data-feather="printer"></i> &nbsp;
-                                Cetak Daftar Artikel
+                                Cetak
                             </a>
                         </div>
                         <div class="card-body">
@@ -57,10 +57,11 @@
                                 <thead>
                                     <tr>
                                         <th width="10">No.</th>
-                                        <th>Nama Artikel</th>
+                                        <th>Nama Laporan</th>
+                                        <th>Perihal</th>
                                         <th>Tanggal</th>
-                                        <th>Departemen</th>
-                                        <th>Penanggung Jawab</th>
+                                        {{-- <th>Departemen</th>
+                                        <th>Penanggung Jawab</th> --}}
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -93,17 +94,21 @@
                     name: 'letter_no'
                 },
                 {
+                    data: 'regarding',
+                    name: 'regarding'
+                },
+                {
                     data: 'letter_date',
                     name: 'letter_date'
                 },
-                {
-                    data: 'department.name',
-                    name: 'department.name'
-                },
-                {
-                    data: 'sender.name',
-                    name: 'sender.name'
-                },
+                // {
+                //     data: 'department.name',
+                //     name: 'department.name'
+                // },
+                // {
+                //     data: 'sender.name',
+                //     name: 'sender.name'
+                // },
                 {
                     data: 'action',
                     name: 'action',

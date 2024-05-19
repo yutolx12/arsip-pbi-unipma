@@ -13,13 +13,13 @@
                         <div class="col-auto mb-3">
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i data-feather="file-text"></i></div>
-                                Ubah Surat
+                                Ubah Dokumen
                             </h1>
                         </div>
                         <div class="col-12 col-xl-auto mb-3">
                             <button class="btn btn-sm btn-light text-primary" onclick="javascript:window.history.back();">
                                 <i class="me-1" data-feather="arrow-left"></i>
-                                Kembali Ke Semua Surat
+                                Kembali Ke Semua Dokumen
                             </button>
                         </div>
                     </div>
@@ -44,18 +44,39 @@
                 <div class="row gx-4">
                     <div class="col-lg-9">
                         <div class="card mb-4">
-                            <div class="card-header">Form Surat</div>
+                            <div class="card-header">Form Ubah Dokumen</div>
                             <div class="card-body">
                                 <div class="mb-3 row">
-                                    <label for="letter_type" class="col-sm-3 col-form-label">Jenis Surat</label>
+                                    <label for="letter_type" class="col-sm-3 col-form-label">Tipe Dokumen</label>
                                     <div class="col-sm-9">
                                         <select name="letter_type" class="form-control" required>
                                             <option value="">Pilih..</option>
-                                            <option value="Surat Masuk"
-                                                {{ $item->letter_type == 'Surat Masuk' ? 'selected' : '' }}>Surat Masuk
+                                            <option value="Kriteria 1"
+                                                {{ $item->letter_type == 'Kriteria 1' ? 'selected' : '' }}>Kriteria 1
                                             </option>
-                                            <option value="Surat Keluar"
-                                                {{ $item->letter_type == 'Surat Keluar' ? 'selected' : '' }}>Surat Keluar
+                                            <option value="Kriteria 2"
+                                                {{ $item->letter_type == 'Kriteria 2' ? 'selected' : '' }}>Kriteria 2
+                                            </option>
+                                            <option value="Kriteria 3"
+                                                {{ old('letter_type') == 'Kriteria 3' ? 'selected' : '' }}>Kriteria 3
+                                            </option>
+                                            <option value="Kriteria 4"
+                                                {{ old('letter_type') == 'Kriteria 4' ? 'selected' : '' }}>Kriteria 4
+                                            </option>
+                                            <option value="Kriteria 5"
+                                                {{ old('letter_type') == 'Kriteria 5' ? 'selected' : '' }}>Kriteria 5
+                                            </option>
+                                            <option value="Kriteria 6"
+                                                {{ old('letter_type') == 'Kriteria 6' ? 'selected' : '' }}>Kriteria 6
+                                            </option>
+                                            <option value="Kriteria 7"
+                                                {{ old('letter_type') == 'Kriteria 7' ? 'selected' : '' }}>Kriteria 7
+                                            </option>
+                                            <option value="Kriteria 8"
+                                                {{ old('letter_type') == 'Kriteria 8' ? 'selected' : '' }}>Kriteria 8
+                                            </option>
+                                            <option value="Kriteria 9"
+                                                {{ old('letter_type') == 'Kriteria 9' ? 'selected' : '' }}>Kriteria 9
                                             </option>
                                         </select>
                                     </div>
@@ -66,7 +87,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="letter_no" class="col-sm-3 col-form-label">No. Surat</label>
+                                    <label for="letter_no" class="col-sm-3 col-form-label">Nama Dokumen</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control @error('letter_no') is-invalid @enderror"
                                             value="{{ $item->letter_no }}" name="letter_no" placeholder="Nomor Surat.."
@@ -79,7 +100,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="letter_date" class="col-sm-3 col-form-label">Tanggal Surat</label>
+                                    <label for="letter_date" class="col-sm-3 col-form-label">Tanggal Dibuat</label>
                                     <div class="col-sm-9">
                                         <input type="date"
                                             class="form-control @error('letter_date') is-invalid @enderror"
@@ -92,7 +113,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="date_received" class="col-sm-3 col-form-label">Tanggal Diterima</label>
+                                    <label for="date_received" class="col-sm-3 col-form-label">Tanggal Edit</label>
                                     <div class="col-sm-9">
                                         <input type="date"
                                             class="form-control @error('date_received') is-invalid @enderror"
@@ -117,7 +138,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="mb-3 row">
+                                {{-- <div class="mb-3 row">
                                     <label for="department_id" class="col-sm-3 col-form-label">Departemen</label>
                                     <div class="col-sm-9">
                                         <select name="department_id" class="form-control selectx" required>
@@ -134,8 +155,8 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
-                                <div class="mb-3 row">
+                                </div> --}}
+                                {{-- <div class="mb-3 row">
                                     <label for="sender_id" class="col-sm-3 col-form-label">Pengirim</label>
                                     <div class="col-sm-9">
                                         <select name="sender_id" class="form-control selectx" required>
@@ -152,15 +173,18 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                </div>
+                                </div> --}}
                                 <div class="mb-3 row">
                                     <label for="letter_file" class="col-sm-3 col-form-label">File</label>
                                     <div class="col-sm-9">
                                         <input type="file"
                                             class="form-control @error('letter_file') is-invalid @enderror"
                                             value="{{ old('letter_file') }}" name="letter_file">
-                                        <div id="letter_file" class="form-text">Ekstensi .pdf | Kosongkan file jika tidak
-                                            diisi</div>
+                                        <div id="letter_file" class="form-text">Ekstensi dokumen: .pdf .xls .docx .doc dan
+                                            maksimal
+                                            berukuran 5MB<br>Kosongkan apabila tidak ingin merubah file dokumen
+
+                                        </div>
                                     </div>
                                     @error('letter_file')
                                         <div class="invalid-feedback">

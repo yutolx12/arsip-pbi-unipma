@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Data Karyawan
+    Data Dosen
 @endsection
 
 @section('container')
@@ -12,8 +12,8 @@
                     <div class="row align-items-center justify-content-between pt-3">
                         <div class="col-auto mb-3">
                             <h1 class="page-header-title">
-                                <div class="page-header-icon"><i data-feather="user"></i></div>
-                                Data Karyawan
+                                <div class="page-header-icon"><i data-feather="users"></i></div>
+                                Data Dosen
                             </h1>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="col-lg-12">
                     <div class="card card-header-actions mb-4">
                         <div class="card-header">
-                            Daftar Karyawan
+                            Daftar Dosen
                             <a class="btn btn-sm btn-primary" href="{{ route('sender.create') }}" data-bs-toggle="modal"
                                 data-bs-target="#createModal">
                                 Tambah Data
@@ -58,7 +58,7 @@
                                     <tr>
                                         <th width="10">No.</th>
                                         <th>Nama</th>
-                                        <th>NIDN</th>
+                                        <th>NIP/NIDN</th>
                                         <th>Pendidikan</th>
                                         <th>Jabatan</th>
                                         <th>E-Mail</th>
@@ -94,21 +94,21 @@
                         </div>
                         <div class="mb-3">
                             <div class="col-md-12">
-                                <label for="nidn">NIDN</label>
-                                <input type="text" name="nidn" class="form-control" placeholder="Masukan NIDN.."
+                                <label for="nidn">NIP/NIDN</label>
+                                <input type="text" name="nidn" class="form-control" placeholder="Masukan NIP/NIDN.."
                                     required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="col-md-12">
-                                <label for="address">Alamat</label>
-                                <textarea name="address" class="form-control" required></textarea>
+                                <label for="address">Pendidikan</label>
+                                <textarea name="address" class="form-control" placeholder="Masukan Riwayat Pendidikan.." required></textarea>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="col-md-12">
-                                <label for="phone">Kontak</label>
-                                <input type="text" name="phone" class="form-control" placeholder="Masukan Kontak.."
+                                <label for="phone">Jabatan</label>
+                                <input type="text" name="phone" class="form-control" placeholder="Masukan Jabatan.."
                                     required>
                             </div>
                         </div>

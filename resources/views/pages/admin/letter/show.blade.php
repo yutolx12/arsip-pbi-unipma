@@ -19,7 +19,7 @@
                         <div class="col-12 col-xl-auto mb-3">
                             <button class="btn btn-sm btn-light text-primary" onclick="javascript:window.history.back();">
                                 <i class="me-1" data-feather="arrow-left"></i>
-                                Kembali Ke Semua Artikel
+                                Kembali Ke Semua Dokumen
                             </button>
                         </div>
                     </div>
@@ -56,14 +56,14 @@
                                             <th>Perihal</th>
                                             <td>{{ $item->regarding }}</td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <th>Penanggung Jawab</th>
                                             <td>{{ $item->sender->name }}</td>
                                         </tr>
                                         <tr>
                                             <th>Departemen</th>
                                             <td>{{ $item->department->name }}</td>
-                                        </tr>
+                                        </tr> --}}
                                     </tbody>
                                 </table>
                             </div>
