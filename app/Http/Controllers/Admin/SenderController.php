@@ -52,8 +52,8 @@ class SenderController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'nidn' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
+            'pendidikan' => 'required',
+            'jabatan' => 'required',
             'email' => 'required',
         ]);
 
@@ -79,8 +79,8 @@ class SenderController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'nidn' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
+            'pendidikan' => 'required',
+            'jabatan' => 'required',
             'email' => 'required',
         ]);
 

@@ -29,7 +29,7 @@
         <!-- Main page content-->
         <div class="container-fluid px-4">
             <div class="row gx-4">
-                <div class="col-lg-7">
+                <div class="col-lg-5">
                     <div class="card mb-4">
                         <div class="card-header">Detail Dokumen</div>
                         <div class="card-body">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-7">
                     <div class="card mb-4">
                         <div class="card-header">
                             File Dokumen -

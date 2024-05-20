@@ -101,14 +101,14 @@
                         </div>
                         <div class="mb-3">
                             <div class="col-md-12">
-                                <label for="address">Pendidikan</label>
-                                <textarea name="address" class="form-control" placeholder="Masukan Riwayat Pendidikan.." required></textarea>
+                                <label for="pendidikan">Pendidikan</label>
+                                <textarea name="pendidikan" class="form-control" placeholder="Masukan Riwayat Pendidikan.." required></textarea>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="col-md-12">
-                                <label for="phone">Jabatan</label>
-                                <input type="text" name="phone" class="form-control" placeholder="Masukan Jabatan.."
+                                <label for="jabatan">Jabatan</label>
+                                <input type="text" name="jabatan" class="form-control" placeholder="Masukan Jabatan.."
                                     required>
                             </div>
                         </div>
@@ -134,8 +134,8 @@
             $id = $item->id;
             $name = $item->name;
             $nidn = $item->nidn;
-            $address = $item->address;
-            $phone = $item->phone;
+            $pendidikan = $item->pendidikan;
+            $jabatan = $item->jabatan;
             $email = $item->email;
         @endphp
         <div class="modal fade" id="updateModal{{ $id }}" role="dialog" aria-labelledby="createModal"
@@ -152,28 +152,28 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <div class="col-md-12">
-                                    <label for="name">Nama Pengirim</label>
+                                    <label for="name">Nama</label>
                                     <input type="text" name="name" class="form-control"
                                         value="{{ $name }}" placeholder="Masukan Nama Karyawan.." required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="col-md-12">
-                                    <label for="nidn">NIDN</label>
+                                    <label for="nidn">NIP/NIDN</label>
                                     <input type="text" name="nidn" class="form-control"
                                         value="{{ $nidn }}" placeholder="Masukan NIDN.." required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="col-md-12">
-                                    <label for="address">Alamat</label>
-                                    <textarea name="address" class="form-control" required>{{ $address }}</textarea>
+                                    <label for="pendidikan">Pendidikan</label>
+                                    <textarea name="pendidikan" class="form-control" required>{{ $pendidikan }}</textarea>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="col-md-12">
-                                    <label for="phone">Kontak</label>
-                                    <input type="text" name="phone" value="{{ $phone }}"
+                                    <label for="jabatan">Jabatan</label>
+                                    <input type="text" name="jabatan" value="{{ $jabatan }}"
                                         class="form-control" placeholder="Masukan Kontak.." required>
                                 </div>
                             </div>
@@ -219,12 +219,12 @@
                     name: 'nidn'
                 },
                 {
-                    data: 'address',
-                    name: 'address'
+                    data: 'pendidikan',
+                    name: 'pendidikan'
                 },
                 {
-                    data: 'phone',
-                    name: 'phone'
+                    data: 'jabatan',
+                    name: 'jabatan'
                 },
                 {
                     data: 'email',

@@ -45,7 +45,8 @@
                             @if (session()->has('success'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     {{ session('success') }}
-                                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button class="btn-close" type="button" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
                                 </div>
                             @endif
                             @if ($errors->any())
@@ -55,7 +56,8 @@
                                             <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
-                                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <button class="btn-close" type="button" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
                                 </div>
                             @endif
                             {{-- List Data --}}
@@ -65,7 +67,7 @@
                                         <th width="10">No.</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Aksi</th>
+                                        {{-- <th>Aksi</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -73,36 +75,41 @@
                         </div>
                     </div>
                 </div>
-            </div>           
+            </div>
         </div>
     </main>
 @endsection
 
 @push('addon-script')
-  <script>
-    var datatable = $('#crudTable').DataTable({
-        processing: true,
-        serverSide: true,
-        ordering: true,
-        ajax: {
-          url: '{!! url()->current() !!}',
-        },
-        columns: [
-          {
-            "data": 'DT_RowIndex',
-            orderable: false, 
-            searchable: false
-          },
-          { data: 'name', name: 'name' },
-          { data: 'email', name: 'email' },
-          { 
-            data: 'action', 
-            name: 'action',
-            orderable: false,
-            searcable: false,
-            width: '15%'
-          },
-        ]
-    });
-  </script>
+    <script>
+        var datatable = $('#crudTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: true,
+            ajax: {
+                url: '{!! url()->current() !!}',
+            },
+            columns: [{
+                    "data": 'DT_RowIndex',
+                    orderable: false,
+                    searchable: false
+                },
+                {
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    data: 'email',
+                    name: 'email'
+                },
+                // {
+                //     data: 'action',
+                //     name: 'action',
+                //     orderable: false,
+                //     searcable: false,
+                //     width: '15%'
+                // },
+            ]
+        });
+    </script>
 @endpush

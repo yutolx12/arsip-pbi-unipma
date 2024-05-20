@@ -17,8 +17,8 @@ class CreateSendersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('nidn');
-            $table->text('address');
-            $table->string('phone');
+            $table->text('pendidikan');
+            $table->string('jabatan');
             $table->string('email');
             $table->timestamps();
         });

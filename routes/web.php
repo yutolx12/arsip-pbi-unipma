@@ -62,8 +62,8 @@ Route::prefix('admin')
         Route::get('letter/download/{id}', [LetterController::class, 'download_letter'])->name('download-surat');
 
         //print
-        Route::get('print/surat-masuk', [PrintController::class, 'index'])->name('print-surat-masuk');
-        Route::get('print/surat-keluar', [PrintController::class, 'outgoing'])->name('print-surat-keluar');
+        Route::get('print/kriteria-1', [PrintController::class, 'kriteria1'])->name('print-kriteria-1');
+        Route::get('print/kriteria-2', [PrintController::class, 'kriteria2'])->name('print-kriteria-2');
         Route::get('print/kriteria-3', [PrintController::class, 'kriteria3'])->name('print-kriteria-3');
         Route::get('print/kriteria-4', [PrintController::class, 'kriteria4'])->name('print-kriteria-4');
         Route::get('print/kriteria-5', [PrintController::class, 'kriteria5'])->name('print-kriteria-5');

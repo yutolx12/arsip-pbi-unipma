@@ -12,8 +12,8 @@ class Sender extends Model
     protected $fillable = [
         'name',
         'nidn',
-        'address',
-        'phone',
+        'pendidikan',
+        'jabatan',
         'email'
     ];
 }

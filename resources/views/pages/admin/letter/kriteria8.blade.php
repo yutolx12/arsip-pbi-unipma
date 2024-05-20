@@ -27,7 +27,7 @@
                     <div class="card card-header-actions mb-4">
                         <div class="card-header">
                             Daftar Kriteria 8
-                            <a class="btn btn-sm btn-primary" href="{{ route('print-surat-keluar') }}" target="_blank">
+                            <a class="btn btn-sm btn-primary" href="{{ route('print-kriteria-8') }}" target="_blank">
                                 <i data-feather="printer"></i> &nbsp;
                                 Cetak
                             </a>
