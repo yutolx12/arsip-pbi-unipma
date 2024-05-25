@@ -25,7 +25,7 @@
                             <th>No.</th>
                             <th>Nama Dokumen</th>
                             <th>Perihal</th>
-                            <th style="text-align: center">Tanggal Dibuat</th>
+                            <th style="text-align: center">Tanggal Berlaku</th>
                             {{-- <th style="text-align: center">Tanggal Edit</th> --}}
                         </thead>
                         <tbody>

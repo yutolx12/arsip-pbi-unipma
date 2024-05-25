@@ -17,7 +17,7 @@
                                 </a>
                             </div>
                             </br>
-                            <center class="centerlogin">Login Ke Arsip PBI UNIPMA</center>
+                            <center class="centerlogin">Masuk Ke Arsip PBI UNIPMA</center>
                             </br>
                         </div>
                         <div class="card-body">

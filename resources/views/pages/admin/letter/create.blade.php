@@ -93,7 +93,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="letter_date" class="col-sm-3 col-form-label">Tanggal Dibuat</label>
+                                    <label for="letter_date" class="col-sm-3 col-form-label">Tanggal Berlaku</label>
                                     <div class="col-sm-9">
                                         <input type="date"
                                             class="form-control @error('letter_date') is-invalid @enderror"

@@ -28,10 +28,15 @@
         </header>
         <!-- Main page content-->
         <div class="container-fluid px-4">
-            <div class="row gx-4">
-                <div class="col-lg-5">
-                    <div class="card mb-4">
-                        <div class="card-header">Detail Dokumen</div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="card card-header-actions mb-4"">
+                        <div class="card-header">
+                            Detail Dokumen
+                            <a href="{{ route('download-surat', $item->id) }}" class="btn btn-sm btn-primary">
+                                <i class="fa fa-download" aria-hidden="true"></i> &nbsp; Download Dokumen
+                            </a>
+                        </div>
                         <div class="card-body">
                             <div class="mb-3 row">
                                 <table class="table">
@@ -45,7 +50,7 @@
                                             <td>{{ $item->letter_no }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Tanggal Dibuat</th>
+                                            <th>Tanggal Berlaku</th>
                                             <td>{{ $item->letter_date }}</td>
                                         </tr>
                                         <tr>
@@ -70,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7">
+                {{-- <div class="col-lg-7">
                     <div class="card mb-4">
                         <div class="card-header">
                             File Dokumen -
@@ -85,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </main>

@@ -57,9 +57,9 @@
                                 <thead>
                                     <tr>
                                         <th width="10">No.</th>
-                                        <th>Nama Laporan</th>
+                                        <th>Nama Dokumen</th>
                                         <th>Perihal</th>
-                                        <th>Tanggal</th>
+                                        <th>Tanggal Berlaku</th>
                                         {{-- <th>Departemen</th>
                                         <th>Penanggung Jawab</th> --}}
                                         <th>Aksi</th>

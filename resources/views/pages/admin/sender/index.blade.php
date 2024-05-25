@@ -79,7 +79,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="createModal">Tambah Data Karyawan</h5>
+                    <h5 class="modal-title" id="createModal">Tambah Data Dosen</h5>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('sender.store') }}" method="post">
@@ -87,9 +87,9 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <div class="col-md-12">
-                                <label for="name">Nama Karyawan</label>
-                                <input type="text" name="name" class="form-control"
-                                    placeholder="Masukan Nama Karyawan.." required>
+                                <label for="name">Nama Dosen</label>
+                                <input type="text" name="name" class="form-control" placeholder="Masukan Nama Dosen.."
+                                    required>
                             </div>
                         </div>
                         <div class="mb-3">
