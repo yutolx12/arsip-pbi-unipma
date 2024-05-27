@@ -3,6 +3,7 @@
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
+use App\Services\CustomFormatter;
 
 return [
 
@@ -65,6 +66,8 @@ return [
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => 14,
+            'replace_placeholders' => true,
+            'formatter' => CustomFormatter::class,
         ],
 
         'slack' => [

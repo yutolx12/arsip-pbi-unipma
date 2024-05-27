@@ -1,0 +1,137 @@
+version: "3.8"
+
+networks:
+    ppaw:
+        driver: bridge
+    elk-network:
+        driver: bridge
+
+volumes:
+    elastic-data-vl:
+
+services:
+    app:
+        build:
+            args:
+                user: User4
+                uid: 1000
+            context: ./
+            dockerfile: Dockerfile
+        image: arsippbiunipma
+        container_name: app
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        networks:
+            - ppaw
+
+    db:
+        image: mysql:5.7
+        container_name: db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USERNAME}
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+            - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+        networks:
+            - ppaw
+
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        restart: unless-stopped
+        ports:
+            - 80:80
+        volumes:
+            - ./:/var/www
+            - ./docker-compose/nginx:/etc/nginx/conf.d/
+        networks:
+            - ppaw
+
+    elasticsearch:
+        image: elasticsearch:8.11.1
+        container_name: elasticsearch
+        restart: always
+        volumes:
+            - elastic-data-vl:/usr/share/elasticsearch/data/
+        environment:
+            ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+            bootstrap.memory_lock: true
+            discovery.type: single-node
+            xpack.license.self_generated.type: basic
+            xpack.security.enabled: false
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        networks:
+            - elk-network
+
+    logstash:
+        image: logstash:8.11.1
+        container_name: logstash
+        restart: always
+        volumes:
+            - ./elk/logstash/:/logstash_dir
+        command: logstash -f /logstash_dir/logstash.conf
+        depends_on:
+            - elasticsearch
+        ports:
+            - "5044:5044"
+            - "9600:9600"
+        environment:
+            LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+        networks:
+            - elk-network
+
+    kibana:
+        image: kibana:8.11.1
+        container_name: kibana
+        restart: always
+        ports:
+            - "5601:5601"
+        environment:
+            - ELASTICSEARCH_URL=http://elasticsearch:9200
+        depends_on:
+            - elasticsearch
+        networks:
+            - elk-network
+
+    filebeat:
+        image: elastic/filebeat:8.11.1
+        container_name: filebeat
+        user: root
+        platform: linux/amd64
+        volumes:
+            - ./elk/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+            - ./storage/logs:/var/log/ELK-log-manager
+        environment:
+            - monitoring.enabled= true
+        depends_on:
+            - logstash
+            - elasticsearch
+        command: ["--strict.perms=false"]
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        stdin_open: true
+        tty: true
+        deploy:
+            mode: global
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "12m"
+                max-file: "100"
+        networks:
+            - elk-network
